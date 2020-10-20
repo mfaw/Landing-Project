@@ -43,7 +43,7 @@ const sectionOne = document.querySelector(".main__hero");
 const sectionOneOptions = {
   rootMargin: "-200px 0px 0px 0px"
 };
-
+// observer used to search for intersection and add nav bar or remove it
 const sectionOneObserver = new IntersectionObserver(function(
   entries,
   sectionOneObserver
@@ -67,6 +67,41 @@ sectionOneObserver.observe(sectionOne);
 
 
 // Scroll to anchor ID using scrollTO event
+// creating function to scroll to anchor
+
+function smoothScroll(target,duration){
+  //function needs target to scroll to
+  var target = document.querySelector(target); // we will leave it general to make it specific when calling
+  var targetPosition = target.getBoundingClientRect().top; 
+  // will get position relative to window
+  var startPosition = window.pageYOffset;
+  var startTime = null; 
+ 
+  //animation function used to make smooth animation 
+  function animation(currentTime){
+    if(startTime == null) startTime = currentTime;
+    var timeElapsed = currentTime - startTime;
+    // we need to use the ease function 
+    var run = ease(timeElapsed, startPosition, targetPosition, duration);
+    window.scrollTo(0, run);
+    if (timeElapsed < duration) requestAnimationFrame(animation);
+  }
+  // any animation function used for easing
+  function ease(t, b, c, d){
+    t /= d / 2;
+    if (t < 1) return c / 2 * t * t + b;
+    t--;
+    return -c / 2 * (t * ( t - 2) - 1) + b;
+  }
+
+  requestAnimationFrame(animation);
+
+}
+
+// Scroll to section on link click
+// calling smooth scroll function by using event listener
+
+smoothScroll('#section1',10000); 
 
 
 /**
@@ -77,6 +112,6 @@ sectionOneObserver.observe(sectionOne);
 
 // Build menu 
 
-// Scroll to section on link click
+
 
 // Set sections as active
