@@ -101,8 +101,23 @@ function smoothScroll(target,duration){
 // Scroll to section on link click
 // calling smooth scroll function by using event listener
 
-smoothScroll('#section1',10000); 
+var section1 = document.querySelector('.nav__link1');
+var section2 = document.querySelector('.nav__link2');
+var section3 = document.querySelector('.nav__link3');
+var section4 = document.querySelector('.nav__link4');
 
+section1.addEventListener('click', function(){
+  smoothScroll('#section1',1000);
+});
+section2.addEventListener('click', function(){
+  smoothScroll('#section2',1000);
+});
+section3.addEventListener('click', function(){
+  smoothScroll('#section3',1000);
+});
+section4.addEventListener('click', function(){
+  smoothScroll('#section4',1000);
+});
 
 /**
  * End Main Functions
