@@ -1,13 +1,13 @@
 # Landing Page Project
 
-## Table of Contents
+This is a DOM manipulation project.
 
-- [Instructions](#instructions)
+First, I've added a nav bar. The nav bar has the following functionalities:
+1- The nav bar appears once scrolling to sections with a different color. That was done using Intersection Observer.
+2- The nav list items have a hover effect.
+3- Once reaching a specific section, the nav bar item of the section becomes highlighted. That was done getBoundingClientRect() function.
+4- Once clicking on an item in the nav bar, the page will be scrolled to the section. A smoot scroll function was done using getBoundingClientRect() and implemented.
 
-## Instructions
+Lastly, a to the top button was added.
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
-
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+Git was also used to make commits in the project.
