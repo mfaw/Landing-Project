@@ -37,7 +37,9 @@
 */
 
 // build the nav
+
 //Nav bar changes on scrolling
+
 const header = document.querySelector("header");
 const sectionOne = document.querySelector(".main__hero");
 const sectionOneOptions = {
@@ -61,9 +63,45 @@ sectionOneOptions);
 
 sectionOneObserver.observe(sectionOne);
 
-//Section highlighted when it reaches the section
-
 // Add class 'active' to section when near top of viewport
+//Section highlighted when it reaches the section
+window.addEventListener("scroll", function(scroll) {
+  // scrolling happened
+  const mySections = document.querySelectorAll("section");
+mySections.forEach(mySection => {
+      const activeSec = mySection.getBoundingClientRect();
+      const asectionTitle = mySection.getAttribute("data-nav");
+      mySection.classList.remove("your-active-class");
+      if (
+          activeSec.top >= 0 &&
+          activeSec.left >= 0 &&
+          activeSec.right <= (window.innerWidth || document.documentElement.clientWidth) &&
+          activeSec.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+          ) {
+              mySection.classList.add("your-active-class");
+              const navItems = document.querySelectorAll("ul li");
+              navItems.forEach(navItem => {
+                  const navTitle = navItem.textContent;
+                  navItem.classList.remove("activeClass")
+                  if (asectionTitle == navTitle) {
+
+                      navItem.classList.add("activeClass")
+                  }
+              });
+              // section is in view port
+          }
+
+      else {
+          // section isnt in the view port
+      }
+      console.log(activeSec)
+
+  
+  })
+})
+
+
+
 
 
 // Scroll to anchor ID using scrollTO event
@@ -119,14 +157,3 @@ section4.addEventListener('click', function(){
   smoothScroll('#section4',1000);
 });
 
-/**
- * End Main Functions
- * Begin Events
- * 
-*/
-
-// Build menu 
-
-
-
-// Set sections as active
