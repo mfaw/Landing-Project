@@ -37,7 +37,6 @@
 */
 
 // build the nav
-
 //Nav bar changes on scrolling
 
 const header = document.querySelector("header");
