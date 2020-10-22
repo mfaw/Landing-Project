@@ -37,6 +37,27 @@
 */
 
 // build the nav
+const sections = document.querySelector("ul");
+const fragment = document.createDocumentFragment();
+//loop to add sections wanted
+for (let i = 1; i <= 4; i++) {
+  //creating list and link
+const list = document.createElement("li"); 
+const link = document.createElement("a"); 
+link.textContent = "Section" + " " +i; 
+const allSection = document.querySelectorAll("section"); 
+//creating event listner to scroll
+link.addEventListener("click", function () {
+event.preventDefault()
+allSection[i].scrollIntoView({
+behavior: "smooth"
+});
+}); 
+list.appendChild(link);
+fragment.appendChild(list);
+};
+sections.appendChild(fragment);
+
 //Nav bar changes on scrolling
 
 const header = document.querySelector("header");
