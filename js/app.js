@@ -82,12 +82,23 @@ const sectionOneObserver = new IntersectionObserver(function(
 sectionOneOptions);
 
 sectionOneObserver.observe(sectionOne);
+//function to get viewport size
+function viewportSize(){
+	var size = document.querySelectorAll( "section" );
 
+	size.style.cssText = "position: fixed;top: 0;left: 0;bottom: 0;right: 0;";
+	document.documentElement.insertBefore( size, document.documentElement.firstChild );
+	
+	var dims = { width: size.offsetWidth, height: size.offsetHeight };
+	document.documentElement.removeChild( size );
+	let coords = dims.height;
+  return coords;
+}
 // Add class 'active' to section when near top of viewport
 //Section highlighted when it reaches the section
 window.addEventListener("scroll", function(scroll) {
   // scrolling happened
-  const mySections = document.querySelectorAll("section");
+const mySections = document.querySelectorAll("section");
 mySections.forEach(mySection => {
       const activeSec = mySection.getBoundingClientRect();
       const asectionTitle = mySection.getAttribute("data-nav");
@@ -96,7 +107,8 @@ mySections.forEach(mySection => {
           activeSec.top >= 0 &&
           activeSec.left >= 0 &&
           activeSec.right <= (window.innerWidth || document.documentElement.clientWidth) &&
-          activeSec.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+          activeSec.bottom <= (window.innerHeight || document.documentElement.clientHeight)  
+          
           ) {
               mySection.classList.add("your-active-class");
               const navItems = document.querySelectorAll("ul li");
@@ -126,7 +138,7 @@ mySections.forEach(mySection => {
 
 // Scroll to anchor ID using scrollTO event
 // creating function to scroll to anchor
-
+/* useless now that dynamic navbar has been added
 function smoothScroll(target,duration){
   //function needs target to scroll to
   var target = document.querySelector(target); // we will leave it general to make it specific when calling
@@ -176,4 +188,4 @@ section3.addEventListener('click', function(){
 section4.addEventListener('click', function(){
   smoothScroll('#section4',1000);
 });
-
+*/

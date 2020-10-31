@@ -1,13 +1,11 @@
 # Landing Page Project
 
-This is a DOM manipulation project.
+This is a DOM manipulation project for Udacity's Web Development Professional Track.
 
-First, I've added a nav bar. The nav bar has the following functionalities:
-1- The nav bar appears once scrolling to sections with a different color. That was done using Intersection Observer.
-2- The nav list items have a hover effect.
-3- Once reaching a specific section, the nav bar item of the section becomes highlighted. That was done getBoundingClientRect() function.
-4- Once clicking on an item in the nav bar, the page will be scrolled to the section. A smoot scroll function was done using getBoundingClientRect() and implemented.
+Any code editor can be used to write this code. I used Visual Studio code and added git to commit the project's steps as much as possible.
 
-Lastly, a to the top button was added.
+This webpage can function on any web browser(usually chrome) through phones or laptops.
 
-Git was also used to make commits in the project.
+This project includes a nav bar that has been added dynamcially and features that would scroll to section on click and highlight the section.
+
+The code was mostly by JavaScript and CSS was used for styling. HTML was used as well.
